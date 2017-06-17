@@ -193,3 +193,16 @@ using this command and reloading the page:
 
 The JavaScript is documented   using  [JsDoc](http://usejsdoc.org/). The
 generated documentation is available in `web/js/doc/index.html`.
+
+
+## Using email_loader
+
+   cd root directory for this repository.
+   swipl email_load.pl -- <wildcard path to emails>  <output file>
+
+example
+
+   swipl email_load.pl -- "/home/anniepoo/pomny/maildir/*/*/*" mails.pl
+
+
+
