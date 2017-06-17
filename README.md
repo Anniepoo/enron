@@ -1,21 +1,10 @@
-# SWISH: A web based SWI-Prolog environment
-
-## Online version
-
-SWISH can be used to access [SWI-Prolog](http://www.swi-prolog.org) at
-the address below. We try to keep this server continuously online. You
-can use this server for playing, courses or sharing and discussing
-ideas. We have not yet dealt with scalable hosting nor with really
-reliable and scalable storage for saved programs. We hope to keep all
-your programs online for at least multiple years.
-
-  - http://swish.swi-prolog.org/
+# Pomny Prototype
 
 ## Installation
 
 ### Get submodules
 
-`cd` to your swish root directory and
+`cd` to your pomny root directory and
 
     git submodule update --init
 
@@ -30,7 +19,7 @@ implies getting `node` and `npm` by installing two packages and next use
     sudo apt-get install npm nodejs-legacy
     sudo npm install -g bower
 
-Once you have `bower`, run the following from the toplevel of `swish` to
+Once you have `bower`, run the following from the toplevel of `pomny` to
 get the dependencies:
 
     bower install
@@ -52,7 +41,7 @@ this zip file.
 ### Get the latest SWI-Prolog
 
 Install the latest  [SWI-Prolog](http://www.swi-prolog.org) _development
-version_. As SWISH is very  much  in   flux  and  depends  on the recent
+version_. As Prototype is very  much  in   flux  and  depends  on the recent
 SWI-Prolog pengines and sandboxing libraries, it   is  quite common that
 you            need            the             [nightly            build
 (Windows)](http://www.swi-prolog.org/download/daily/bin/) or build   the
@@ -69,7 +58,7 @@ for virtually any Linux system, e.g., on Debian based systems do
 
     sudo apt-get install imagemagick
 
-## Running SWISH
+## Running Prototype
 
 With a sufficiently recent Prolog installed, start the system by opening
 `run.pl` either by running `swipl  run.pl`   (Unix)  or opening `run.pl`
@@ -77,12 +66,9 @@ from the Windows explorer.
 
 Now direct your browser to http://localhost:3050/
 
-If you want  to  know  what  the   latest  version  looks  like,  go  to
-http://swish.swi-prolog.org/
+### Configuring Pomny
 
-### Configuring SWISH
-
-There is a lot that can be configured in SWISH.  Roughly:
+There is a lot that can be configured in the prototype.  Roughly:
 
   - Make additional libraries available, e.g., RDF support, database
     connections, link to R, etc.
@@ -96,15 +82,11 @@ Configuration is done  by  reading  `*.pl`   files  from  the  directory
 `config-enabled`. The directory `config-available`   contains  templates
 that can be copied and optionally edited to create a configuration.
 
-See [README.md in
-config-available](https://github.com/SWI-Prolog/swish/tree/master/config-available)
-for details.
 
+### Running Prototype without sandbox limitations
 
-### Running SWISH without sandbox limitations
-
-By default, SWISH does not require the user   to  login but lets you run
-only _safe_ commands.  If  you  want   to  use  SWISH  for  unrestricted
+By default, Prototype does not require the user   to  login but lets you run
+only _safe_ commands.  If  you  want   to  use  Prototype  for  unrestricted
 development, enable the config file `auth_http_always.pl`:
 
     mkdir -p config-enabled
@@ -125,7 +107,7 @@ moment _Group_ and _E-Mail_ are stored, but not used.
     (again):
     true.
 
-If you now try to run a command in  SWISH, it will prompt for a user and
+If you now try to run a command in Prototype, it will prompt for a user and
 password. After authentication you can run any Prolog predicate.
 
 **NOTE** Authentication uses HTTP _digest   authentication_  by default.
@@ -151,13 +133,13 @@ is planned.
 
 ## Running as a service
 
-The script daemon.pl is provided to run SWISH  as a service or daemon on
+The script daemon.pl is provided to run Prototype as a service or daemon on
 Unix systems. Run this to get an overview of the options.
 
     ./daemon.pl --help
 
-This script can be used to start  SWISH   as  a  daemon from the command
-line, start SWISH from service managers   such as `upstart` or `systemd`
+This script can be used to start  Prototype as  a  daemon from the command
+line, start Prototype from service managers   such as `upstart` or `systemd`
 and    simplifies    running    as     an      HTTPS     server.     See
 https://github.com/triska/letswicrypt.
 
