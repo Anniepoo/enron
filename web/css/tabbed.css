@@ -14,12 +14,12 @@ div.tab-pane {
 }
 
 span.glyphicon.xclose:hover {
-  opacity: 0.8;
+  /* opacity: 0.8; */
 }
 
 span.glyphicon.xclose {
   margin-left: 5px;
-  opacity: 0.2;
+/*  opacity: 0.2;*/
 }
 
 a.tab-new.compact > span {
@@ -132,6 +132,7 @@ label.tabbed-right {
 }
 
 form.search-sources {
+	display: none;
   margin: 3em auto 1em;
   width: 80%;
 }

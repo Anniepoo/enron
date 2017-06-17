@@ -142,12 +142,12 @@ swish_config:config(show_beware,        true).
 swish_config:config(tabled_results,     false).
 swish_config:config(application,        swish).
 swish_config:config(csv_formats,        [prolog]).
-swish_config:config(community_examples, false).
+swish_config:config(community_examples, true).
 swish_config:config(public_access,      false).
 swish_config:config(include_alias,	example).
 swish_config:config(ping,		10).
 swish_config:config(notebook,		_{eval_script: true}).
-swish_config:config(chat,		true).
+swish_config:config(chat,		false).
 
 %%	swish_config:source_alias(Alias, Options) is nondet.
 %

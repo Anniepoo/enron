@@ -99,7 +99,6 @@ div.edit-modal > div.mask
 div.edit-modal .goto-source
 { position: absolute;
   padding: 0.2em 0.5em 0em;
-  border-radius: 5px;
   border: 1px solid #000;
   background: #fff;
   box-shadow: 10px 10px 5px #888888;

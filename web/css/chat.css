@@ -47,7 +47,6 @@ li.user.lost
 .notify-arrow {
 	background: #cff;
 	border: 1px solid #888;
-        border-radius: 5px;
         box-shadow: 6px 6px 3px #aaa;
 }
 .notify-arrow:after, .notify-arrow:before {

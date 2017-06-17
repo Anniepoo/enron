@@ -67,7 +67,6 @@ div.chatroom div.chat-message
   margin-bottom: 1ex;
   background-color: #eee;
   border: 1px solid #ccc;
-  border-radius: 5px;
   padding: 3px 5px;
 }
 
@@ -81,7 +80,6 @@ div.chat-message img.avatar
   margin-top: 0px;
   top: 0px;
   right: 0px;
-  border-radius: 5px;
   width: 24px;
 }
 
@@ -118,7 +116,6 @@ span.no-commit-message
 { background: #ffd;
   padding: 5px 5px;
   border: 1px solid #888;
-  border-radius: 5px;
 }
 
 .chat-message .tooltip-inner pre.cm-s-prolog

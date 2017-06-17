@@ -25,13 +25,14 @@
 /* Logos */
 
 a.pengine-logo {
-  position:absolute;
+  /*position:absolute;
   top:4px;
   left:4px;
   width: 42px;
   height: 42px;
   background-image: url("../icons/logo.png");
   background-size: 100%;
+*/
 }
 
 /* jQuery splitter overrules.
@@ -41,11 +42,11 @@ a.pengine-logo {
 
 .splitter_panel .vsplitter, .splitter_panel .hsplitter {
     z-index: 100;
-    border: 2px outset #ccc;
+    border: 0px outset #ccc;
 }
 
-.splitter_panel .vsplitter { width: 3px; }
-.splitter_panel .hsplitter { height: 3px; }
+.splitter_panel .vsplitter { width: 1px; }
+.splitter_panel .hsplitter { height: 1px; }
 
 .splitter_panel .vsplitter, .splitter_panel .left_panel, .splitter_panel .right_panel,
 .splitter_panel .hsplitter, .splitter_panel .top_panel, .splitter_panel .bottom_panel {

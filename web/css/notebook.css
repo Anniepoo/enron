@@ -131,7 +131,6 @@ div.notebook-menu {
 .nb-cell.markdown.active > div.editor,
 .nb-cell.html.active > div.editor
 { border: 1px dotted #888;
-  border-radius: 5px;
   margin-bottom: 5px;
   margin-right: 52px;
 }
@@ -149,7 +148,7 @@ div.notebook-menu {
 }
 
 .nb-cell .CodeMirror
-{ border-radius: 5px;
+{ 
 }
 
 .nb-cell .nb-cell-buttons
@@ -168,7 +167,6 @@ div.notebook-menu {
 .nb-cell > .with-buttons
 { background-color: #eee;
   border: 1px solid #ccc;
-  border-radius: 5px;
   width: calc(100% - 50px);
 }
 

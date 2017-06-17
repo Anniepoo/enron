@@ -150,7 +150,7 @@ swish_reply3(_, Options) :-
 swish_reply3(_, Options) :-
 	reply_html_page(
 	    swish(main),
-	    [ title('SWISH -- SWI-Prolog for SHaring'),
+	    [ title('Pomny'),
 	      link([ rel('shortcut icon'),
 		     href('/icons/favicon.ico')
 		   ]),
@@ -336,8 +336,8 @@ swish_navbar(Options) -->
 		   role(navigation)
 		 ],
 		 [ div(class('navbar-header'),
-		       [ \collapsed_button,
-			 \swish_logos(Options)
+		       [ \collapsed_button
+/*	,		 \swish_logos(Options) */
 		       ]),
 		   div([ class([collapse, 'navbar-collapse']),
 			 id(navbar)
