@@ -1,0 +1,24 @@
+<div class="notebook">
+
+<div class="nb-cell markdown">
+# Pomny Prototype:  Enron
+
+This skeleton notebook pre-loads Pomny's libraries for processing the Enron email corpus.
+</div>
+
+<div class="nb-cell program" data-background="true" data-singleline="true">
+
+:- use_module(email_parser(email_parse_harness)). % Loads the Enron Harness.
+
+</div>
+
+
+<div class="nb-cell program">
+
+</div>
+
+<div class="nb-cell query">
+
+</div>
+
+</div>
