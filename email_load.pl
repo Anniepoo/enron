@@ -1,4 +1,4 @@
-:- module(run, [go/0]).
+:- module(email_load, [go/0]).
 /** <module> main entry point for dev harness for email parser
  * copyright (C) 2017 The Elgin Works
  * All Rights Reserved
