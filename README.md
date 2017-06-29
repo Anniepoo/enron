@@ -41,14 +41,16 @@ this zip file.
 ### Get the latest SWI-Prolog
 
 Install the latest  [SWI-Prolog](http://www.swi-prolog.org) _development
-version_. As Prototype is very  much  in   flux  and  depends  on the recent
+version_. 
+
+    brew install swi-prolog
+
+As Prototype is very  much  in   flux  and  depends  on the recent
 SWI-Prolog pengines and sandboxing libraries, it   is  quite common that
 you            need            the             [nightly            build
 (Windows)](http://www.swi-prolog.org/download/daily/bin/) or build   the
 system    from    the     current      git     development    repository
 [swipl-devel.git](https://github.com/SWI-Prolog/swipl-devel).
-
-brew install swi-prolog
 
 Apr 8, 2017: SWI-Prolog 7.5.3 works fine.
 
