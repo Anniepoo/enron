@@ -48,6 +48,8 @@ you            need            the             [nightly            build
 system    from    the     current      git     development    repository
 [swipl-devel.git](https://github.com/SWI-Prolog/swipl-devel).
 
+brew install swi-prolog
+
 Apr 8, 2017: SWI-Prolog 7.5.3 works fine.
 
 ### Other dependencies
