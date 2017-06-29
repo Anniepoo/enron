@@ -203,6 +203,8 @@ generated documentation is available in `web/js/doc/index.html`.
 
    cd root directory for this repository.
    swipl email_load.pl -- <wildcard path to emails>  <output file>
+   
+sample enron data set (May 7, 2015 version): https://www.cs.cmu.edu/~./enron/
 
 example
 
