@@ -66,3 +66,25 @@ support such as managing users and get notifications.
   - `logging.pl` configures the creation of HTTP and Pengine log
     files.
 
+# Pomny Specific
+
+## Email Analysis
+
+### To enable 
+
+1. make a symlink from ./config-enabled/email_analysis.pl to ./config-available/email_analysis.pl
+
+2. create an email corpus file using email_loader (comes with this distro)
+
+3. Tell email_analysis where you put the email file.
+
+to locate email  files
+
+?- set_setting(email_analysis:email_location, <path to emails, relative to the pomny swish home directory>).
+?- save_settings.
+
+and restart swish.
+
+
+
+
