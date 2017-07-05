@@ -73,11 +73,22 @@ header_value_from_parts(Val, Conts, SVal) :-
 body(Body) -->
     string(CBody),
     original_separator,
-    remainder(_),
+    grnd_remainder(_),
     {string_codes(Body, CBody)}.
 body(Body) -->
-    remainder(CBody),
+    grnd_remainder(CBody),
     {string_codes(Body, CBody)}.
 
 original_separator -->
     " -----Original Message-----\n".
+
+% library remainder//1 reutrns list (codes)
+% with hole at end when used with lazy phrase_from_stream
+%
+% workaround for that
+grnd_remainder([]) -->
+    eos.
+grnd_remainder([H |T]) -->
+   \+ eos,
+   [H],
+   grnd_remainder(T).

@@ -31,7 +31,7 @@ As installing node and bower is not a pleasure on all operating systems,
 you can also download  the  dependencies  as   a  single  zip  file from
 http://www.swi-prolog.org/download/swish/swish-bower-components.zip.
 Unpack the zip file, maintaining the directory structure, from the swish
-root directory to create the directory web/bower_components.
+root directory to create the dirsectory web/bower_components.
 
 Last updated: Apr 8, 2017: upgraded. Notably typeahead.js is forward nor
 backward compatible and you need SWISH with commit
@@ -198,17 +198,28 @@ using this command and reloading the page:
 The JavaScript is documented   using  [JsDoc](http://usejsdoc.org/). The
 generated documentation is available in `web/js/doc/index.html`.
 
+# Pomny Specific Stuff
 
 ## Using email_loader
 
    cd root directory for this repository.
-   swipl email_load.pl -- <wildcard path to emails>  <output file>
+   swipl  -L1g -G2g -T1g email_load.pl -- <wildcard path to emails>  <output file>
    
 sample enron data set (May 7, 2015 version): https://www.cs.cmu.edu/~./enron/
 
 example
 
-   swipl email_load.pl -- "/home/anniepoo/pomny/maildir/*/*/*" mails.pl
+   swipl -L1g -G2g -T1g email_load.pl -- "/home/anniepoo/pomny/maildir/*/*/*" mails.pl
+
+produces two files, one named enronrdf.ttl, which is the RDF data in turtle format, and one
+named mails.pl (or whatever you called it) which is the same data in a list.
+
+Note that you need to increase resource limit.
+
+## Analysis of Enron Emails swinb
+
+A swinb sheet with some Enron email analysis.
+
 
 
 

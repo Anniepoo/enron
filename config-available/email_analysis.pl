@@ -21,8 +21,27 @@ license:license(pomny_license, proprietary,
 :- use_module(library(settings)).
 :- use_module(library(sandbox)).
 :- use_module(library(pengines)).
+:- use_module(library(semweb/rdf_db)).
+:- use_module(library(semweb/turtle)).
 
+
+load_emails_as_predicate :- false.
+
+		 /*******************************
+		 *     Emails as lists          *
+		 *******************************/
+
+:- if(load_emails_as_predicate).
+
+% basically faking out the module system so this is already here and
+% we're adding clauses without multifiling it
 email(_) :- fail.
+:-
+    working_directory(CWD, CWD),
+    atom_concat(CWD, 'email_parser/', EmailDir),
+    asserta(user:file_search_path(email_parser, EmailDir)).
+
+:- use_module(email_parser(email_parse_harness)).
 
 :- setting(email_analysis:email_location, acyclic, 'mails.pl',
            'path or abstract path as prolog style path to email corpus').
@@ -36,7 +55,20 @@ email(_) :- fail.
 
 sandbox:safe_primitive(email_analysis:email(_)).
 
+:- else.
 
+
+:- setting(email_analysis:enron_turtle, acyclic, 'enronrdf.ttl',
+           'path or abstract path as prolog style path to email turtle file').
+
+:- rdf_register_prefix(enron, 'http://pomny.io/rdf/enron/').
+:- rdf_register_prefix(enronschema,  'http://pomny.io/rdf/enron/relation/').
+
+:- initialization
+    setting(email_analysis:enron_turtle, TTL),
+    rdf_load(TTL, []).
+
+:- endif.
 
 
 
