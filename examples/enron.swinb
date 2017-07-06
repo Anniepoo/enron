@@ -1,0 +1,47 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+# Enron Email Analysis
+
+This is a prototype demo of analysis of internal corporate communications, using the corpus of emails released to the public as part of the Federal Energy Regulatory Commission's investigation of the Enron corporation.
+
+The set loaded contains some 465,000 emails loaded by parsing the set available under the 'May 7, 2015 Version of dataset' link on [this page](https://www.cs.cmu.edu/~./enron/).
+
+The set is provided as RDF triples.
+
+Each email has an IRI of rdf:type enronschema:email
+
+As a simple example, let's count them
+</div>
+
+<div class="nb-cell program" data-background="true" name="p1">
+email(U) :-
+    rdf(U, rdf:type, enronschema:email).
+
+count_emails(N) :-
+    bagof(X, email(X), L),length(L, N).
+</div>
+
+<div class="nb-cell query" name="q2">
+count_emails(N).
+</div>
+
+<div class="nb-cell markdown" name="md2">
+# RDF predicates
+</div>
+
+<div class="nb-cell program" data-background="true" name="p2">
+predicate(PPA) :-
+	findnsols(200, P, rdf(_,P,_), L),
+    !,
+    setof(R, member(R, L), SL),
+    !,
+    member(PP, SL),
+    with_output_to(string(PP), print(PPA)).
+</div>
+
+<div class="nb-cell query" data-chunk="99" data-tabled="true" name="predicatelist">
+predicate(PP).
+</div>
+
+</div>

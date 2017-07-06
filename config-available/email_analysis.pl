@@ -1,4 +1,4 @@
-:- module(email_analysis, []).
+:- module(email_analysis, [load_enron/0]).
 /** <module> Tools to analyze emails
  *
  *  If you use this code without pomny permission you agree to forever
@@ -21,9 +21,6 @@ license:license(pomny_license, proprietary,
 :- use_module(library(settings)).
 :- use_module(library(sandbox)).
 :- use_module(library(pengines)).
-:- use_module(library(semweb/rdf_db)).
-:- use_module(library(semweb/turtle)).
-
 
 load_emails_as_predicate :- false.
 
@@ -56,6 +53,16 @@ email(_) :- fail.
 sandbox:safe_primitive(email_analysis:email(_)).
 
 :- else.
+:- use_module(library(semweb/rdf11)).
+:- use_module(library(semweb/turtle)).
+:- use_module(library(semweb/rdf_portray)).
+
+:- use_module(swish:library(semweb/rdf11)).
+:-use_module(swish:email_analysis).
+
+:- multifile sandbox:safe_primitive/1.
+
+sandbox:safe_primitive(rdf11:rdf(_,_,_)).
 
 
 :- setting(email_analysis:enron_turtle, acyclic, 'enronrdf.ttl',
@@ -63,10 +70,13 @@ sandbox:safe_primitive(email_analysis:email(_)).
 
 :- rdf_register_prefix(enron, 'http://pomny.io/rdf/enron/').
 :- rdf_register_prefix(enronschema,  'http://pomny.io/rdf/enron/relation/').
+:- rdf_portray_as(prefix:id).
 
-:- initialization
+load_enron :-
     setting(email_analysis:enron_turtle, TTL),
     rdf_load(TTL, []).
+
+sandbox:safe_primitive(email_analysis:load_enron).
 
 :- endif.
 
