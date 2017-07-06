@@ -218,7 +218,10 @@ Note that you need to increase resource limit.
 
 ## Analysis of Enron Emails swinb
 
-A swinb sheet with some Enron email analysis.
+A swinb sheet with some Enron email analysis is in http://localhost:3050/example/enron.swinb
+
+You need to load the enron emails. at console of swish, query load_enron.
+
 
 
 
