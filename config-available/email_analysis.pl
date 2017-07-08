@@ -1,4 +1,5 @@
-:- module(email_analysis, [load_enron/0]).
+:- module(email_analysis, [load_enron/0,
+                          prefixed_string/2]).
 /** <module> Tools to analyze emails
  *
  *  If you use this code without pomny permission you agree to forever
@@ -33,11 +34,13 @@ load_emails_as_predicate :- false.
 % basically faking out the module system so this is already here and
 % we're adding clauses without multifiling it
 email(_) :- fail.
+
 :-
     working_directory(CWD, CWD),
     atom_concat(CWD, 'email_parser/', EmailDir),
     asserta(user:file_search_path(email_parser, EmailDir)).
 
+% will be red if we're not loading as list
 :- use_module(email_parser(email_parse_harness)).
 
 :- setting(email_analysis:email_location, acyclic, 'mails.pl',
@@ -52,18 +55,25 @@ email(_) :- fail.
 
 sandbox:safe_primitive(email_analysis:email(_)).
 
+		 /*******************************
+		 * Emails as RDF                *
+		 *******************************/
+
 :- else.
 :- use_module(library(semweb/rdf11)).
 :- use_module(library(semweb/turtle)).
 :- use_module(library(semweb/rdf_portray)).
 
 :- use_module(swish:library(semweb/rdf11)).
+:- use_module(swish:library(semweb/rdf_portray)).
 :-use_module(swish:email_analysis).
 
 :- multifile sandbox:safe_primitive/1.
 
 sandbox:safe_primitive(rdf11:rdf(_,_,_)).
-
+sandbox:safe_primitive(rdf11:rdf_predicate(_)).
+sandbox:safe_primitive(rdf_db:rdf_register_prefix(_,_)).
+sandbox:safe_primitive(rdf_portray:rdf_portray_as(_)).
 
 :- setting(email_analysis:enron_turtle, acyclic, 'enronrdf.ttl',
            'path or abstract path as prolog style path to email turtle file').
@@ -78,7 +88,12 @@ load_enron :-
 
 sandbox:safe_primitive(email_analysis:load_enron).
 
+:- rdf_meta prefixed_string(r, -).
+
+prefixed_string(IRI, S) :-
+    with_output_to(string(S), print(IRI)).
+
+sandbox:safe_primitive(email_analysis:prefixed_string(_,_)).
+
 :- endif.
-
-
 

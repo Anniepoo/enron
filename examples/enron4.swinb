@@ -1,0 +1,64 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+# Enron Email Analysis
+
+This is a prototype demo of analysis of internal corporate communications, using the corpus of emails released to the public as part of the Federal Energy Regulatory Commission's investigation of the Enron corporation.
+
+The set loaded contains some 465,000 emails loaded by parsing the set available under the 'May 7, 2015 Version of dataset' link on [this page](https://www.cs.cmu.edu/~./enron/).
+
+The set is provided as 8.6 million RDF triples.
+
+To load the triples, run the query below. It takes about 3 minutes to load.
+</div>
+
+<div class="nb-cell query" name="q1">
+load_enron.
+</div>
+
+<div class="nb-cell markdown" name="md3">
+Each email has an IRI of rdf:type enronschema:email
+
+As a simple example, let's count them
+</div>
+
+<div class="nb-cell program" data-background="true" name="p1">
+email(U) :-
+    rdf(U, rdf:type, enronschema:email).
+
+count_emails(N) :-
+    bagof(X, email(X), L),length(L, N).
+</div>
+
+<div class="nb-cell query" name="q2">
+count_emails(N).
+</div>
+
+<div class="nb-cell markdown" name="md2">
+# RDF predicates
+
+lets look at all the
+</div>
+
+<div class="nb-cell program" data-background="true" name="p2">
+:- rdf_register_prefix(enron, 'http://pomny.io/rdf/enron/').
+:- rdf_register_prefix(enronschema,  'http://pomny.io/rdf/enron/relation/').
+:- rdf_portray_as(prefix:id).
+
+:- rdf_meta rdf_predicate(r).
+
+enron_predicate(PPA) :-
+    rdf_predicate(PP),  /*
+	findnsols(200, P, rdf(_,P,_), L),
+    !,
+    setof(R, member(R, L), SL),
+    !,
+    member(PP, SL), */ 
+    prefixed_string(PP, PPA).
+</div>
+
+<div class="nb-cell query" data-chunk="99" data-tabled="true" name="predicatelist">
+enron_predicate(PP).
+</div>
+
+</div>
