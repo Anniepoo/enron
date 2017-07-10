@@ -1,0 +1,21 @@
+<div class="notebook">
+
+<div class="nb-cell markdown">
+# Welcome to Pomny
+
+You are reading a Pomny _notebook_.  A notebook is a mixture of _text_, _programs_ and _queries_.  This notebook gives an overview of example programs shipped with Pomny.
+
+  - *First steps*
+    - [Knowledge bases](example/kb.pl) provides a really simple
+      knowledge base with example queries.
+    - [Enron](example/enron.pl) is a working Pomny Notebook 
+	 	with several examples demonstrating Pomny's capabilities.
+    - [Using Graphviz to display graphs](example/render_graphviz.swinb)
+    - [Using C3 to display charts](example/render_c3.swinb)
+    
+  - Enron
+    - [Enron data loaded from DB](example/enronfromdb.swinb)
+    - [Starter for analysis](example/enronanalysisstarter.swinb)
+</div>
+
+</div>

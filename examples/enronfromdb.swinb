@@ -10,10 +10,13 @@ The set loaded contains some 465,000 emails loaded by parsing the set available 
 The set is provided as 8.6 million RDF triples.
 
 To load the triples, run the query below. It takes about 3 minutes to load.
+
+The raw data is pretty dirty. We remove a few emails we can't parse.
+
 </div>
 
 <div class="nb-cell query" name="q1">
-load_enron.
+load_enron_db.
 </div>
 
 <div class="nb-cell markdown" name="md3">
@@ -59,53 +62,6 @@ enron_predicate(PPA) :-
 
 <div class="nb-cell query" data-chunk="99" data-tabled="true" name="predicatelist">
 enron_predicate(PP).
-</div>
-
-<div class="nb-cell markdown" name="md4">
-# data cleaning
-
-The email data is dirty, and we need to do some cleanup. For example, the data has been line wrapped.
-
-It's probably already happened if you're looking at this.
-
-
-</div>
-
-<div class="nb-cell program" data-background="true" name="p3">
-portray_headers(IRI) :-
-    rdf(IRI, P, O),
-    prefixed_string(P, PS),
-    format('~w: ~w~n', [PS, O]),
-    fail.
-portray_headers(_).
-
-portray_email(IRI) :-
-    rdf(IRI, enron:sourcefile, File),
-    print(File),
-    print('\n'),
-    portray_headers(IRI),
-    rdf(IRI, enronschema:body, Body),
-    print(Body),
-    print('\n').
-    
-    
-find_bogus :-
-    rdf(URI, enronschema:'%20SecularUpswing', O),
-    format('header val ~w~n', [O]),
-    portray_email(URI).
-
-</div>
-
-<div class="nb-cell query" name="q3">
-find_bogus.
-</div>
-
-<div class="nb-cell program" data-background="true" name="p4">
-bogus_predicate(P) :-
-    rdf_predicate(P),
-    atom_concat('http://pomny.io/rdf/enron/relation/%20',
-                       _, P).
-    
 </div>
 
 </div>

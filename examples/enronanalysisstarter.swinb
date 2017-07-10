@@ -1,0 +1,23 @@
+<div class="notebook">
+
+<div class="nb-cell markdown" name="md1">
+# RDF Analysis
+
+This is a starter analysis page for making rdf analysis.
+
+</div>
+
+<div class="nb-cell program" name="p1">
+email(U) :-
+    rdf(U, rdf:type, enronschema:email).
+
+:- rdf_register_prefix(enron, 'http://pomny.io/rdf/enron/').
+:- rdf_register_prefix(enronschema,  'http://pomny.io/rdf/enron/relation/').
+:- rdf_portray_as(prefix:id).
+
+:- rdf_meta rdf_predicate(r).
+
+
+</div>
+
+</div>
