@@ -232,7 +232,14 @@ Note that you need to increase resource limit.
 A swinb sheet with some Enron email analysis is in http://localhost:3050/example/enron.swinb
 
 You need to load the enron emails. at console of swish, query load_enron.
+This loads the emails, then does some cleanup. So your internal rdf store is not identical to the turtle file.
 
+to speed loading up, query load_enron and load the enron data from the turtle file, then
+call save_enron_db. This make the file cleanenron.db
+
+exit swish, and now you can restart swish and then load up faster by querying load_enron_db.
+
+Sorry, messy - will clean up.
 
 ## Jan advice
 
