@@ -200,6 +200,13 @@ generated documentation is available in `web/js/doc/index.html`.
 
 # Pomny Specific Stuff
 
+You will need to enable the email_analysis.pl extension in SWISH.
+
+Make a link in config-enabled named email_analysis.pl that points at the same file in config-available and start/restart SWISH.
+
+
+
+
 ## Using email_loader
 
    cd root directory for this repository.
@@ -211,6 +218,10 @@ example
 
    swipl -L1g -G2g -T1g email_load.pl -- "/home/anniepoo/pomny/maildir/*/*/*" mails.pl
 
+Then query 
+
+go.
+
 produces two files, one named enronrdf.ttl, which is the RDF data in turtle format, and one
 named mails.pl (or whatever you called it) which is the same data in a list.
 
@@ -221,6 +232,21 @@ Note that you need to increase resource limit.
 A swinb sheet with some Enron email analysis is in http://localhost:3050/example/enron.swinb
 
 You need to load the enron emails. at console of swish, query load_enron.
+
+
+## Jan advice
+
+Use a recent version that provides rdf_prefix/2.  This deals with `local 
+prefixes' and is what you need for sandboxed SWISH.  Works for me.  The
+old way (rdf_register_prefix/2,3), etc. cannot work in SWISH as global
+prefixes may contradict between users and they are registered in a
+global module which is not allowed by the sandbox and even if we allow 
+for that, the prefix can never be reclaimed.
+
+The with_output_to/2 issue has been fixed a couple of weeks ago. (July 1 2017 email)
+
+
+
 
 
 

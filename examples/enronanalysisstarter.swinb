@@ -4,7 +4,6 @@
 # RDF Analysis
 
 This is a starter analysis page for making rdf analysis.
-
 </div>
 
 <div class="nb-cell program" name="p1">
@@ -16,8 +15,6 @@ email(U) :-
 :- rdf_portray_as(prefix:id).
 
 :- rdf_meta rdf_predicate(r).
-
-
 </div>
 
 </div>
