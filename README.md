@@ -1,10 +1,10 @@
-# Pomny Prototype
+# Enron analysis Prototype
 
 ## Installation
 
 ### Get submodules
 
-`cd` to your pomny root directory and
+`cd` to your install root directory and
 
     git submodule update --init
 
@@ -19,7 +19,7 @@ implies getting `node` and `npm` by installing two packages and next use
     sudo apt-get install npm nodejs-legacy
     sudo npm install -g bower
 
-Once you have `bower`, run the following from the toplevel of `pomny` to
+Once you have `bower`, run the following from the toplevel of install to
 get the dependencies:
 
     bower install
@@ -70,7 +70,7 @@ from the Windows explorer.
 
 Now direct your browser to http://localhost:3050/
 
-### Configuring Pomny
+### Configuring System
 
 There is a lot that can be configured in the prototype.  Roughly:
 
@@ -198,7 +198,7 @@ using this command and reloading the page:
 The JavaScript is documented   using  [JsDoc](http://usejsdoc.org/). The
 generated documentation is available in `web/js/doc/index.html`.
 
-# Pomny Specific Stuff
+# Enron Specific Stuff
 
 You will need to enable the email_analysis.pl extension in SWISH.
 
@@ -216,7 +216,7 @@ sample enron data set (May 7, 2015 version): https://www.cs.cmu.edu/~./enron/
 
 example
 
-   swipl -L1g -G2g -T1g email_load.pl -- "/home/anniepoo/pomny/maildir/*/*/*" mails.pl
+   swipl -L1g -G2g -T1g email_load.pl -- "/home/anniepoo/enron/maildir/*/*/*" mails.pl
 
 Then query 
 
